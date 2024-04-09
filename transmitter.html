@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        /* Red: F24865, Light Gray: F4F4F4, Blue: 45CAE6, Green: 09C775, Dark Gray: 797979 */
+        @import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
+
+        * {
+            box-sizing: border-box;
+            font-family: Quicksand, sans-serif;
+        }
+        body {
+            background-color: #797979;
+            color: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+        }
+        button{
+        border:1 px solid #f24865;
+        color: white;
+        background-color: #f24865;
+        padding:1em 1.5em;
+        border-radius:4px;
+      }
+
+        .wrap {
+            margin: 15px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .wrap form {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+        }
+
+        .form-header {
+            background-color: #45CAE6;
+            border-radius: 4px 4px 0 0;
+            padding: 1em;
+        }
+
+        .form-header h2 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.75em;
+            margin: 0;
+        }
+
+        .form-body {
+            background-color: #fff;
+            padding: 1em;
+        }
+
+        .form-body label,
+        .form-body input,
+        .form-body select,
+        .form-body textarea {
+            display: block;
+            width: 100%;
+        }
+
+        .form-body label {
+            font-size: .8em;
+            font-weight: 700;
+            line-height: 1;
+            margin: .75em 0 .25em;
+        }
+
+        .form-body input,
+        .form-body select,
+        .form-body textarea {
+            background-color: #f4f4f4;
+            border: none;
+            border-radius: 4px;
+            padding: .25em;
+        }
+        
+        .form-body fieldset {
+            border: none;
+            margin: 0 0 1em;
+            padding: 0;
+        }
+
+        .form-body fieldset:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .form-body fieldset legend {
+            font-size: 1.25em;
+            font-weight: 700;
+        }
+        
+        .form-footer {
+            background-color: #e2e2e2;
+            border-radius: 0 0 4px 4px;
+            padding: 1em;
+        }
+
+        .form-footer a[type="submit"] {
+            background-color: #F24865;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            padding: 1em 1.5em;
+        }
+
+        /******** Subscription option actions ********/
+        .sub-opts input[name="subscription"] {
+            display: none;
+        }
+
+        .sub-opts input[name="subscription"]+.sub-opt {
+            background-color: #f4f4f4;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+        #onButton:hover{
+          background-color:#09c775;
+          color: white;
+        }
+        #offButton:hover{
+          background-color: red;
+          color: white;
+        }
+        .sub-opts input[name="subscription"]:checked+.sub-opt {
+            /* background-color: #09C775;
+            color: #fff; */
+        }
+
+        .sub-opts input[name="subscription"]+.sub-opt .sub-label .fa {
+            display: none;
+        }
+
+        .sub-opts input[name="subscription"]:checked+.sub-opt .sub-label .fa {
+            display: inline-block;
+        }
+
+        .sub-opts .sub-opt .sub-label {
+            display: block;
+            cursor: pointer;
+            font-size: 1em;
+            padding: 1em;
+        }
+
+        .sub-opts .sub-opt .sub-label span.price {
+            display: inline-block;
+            float: right;
+        }
+    </style>
+
+
+    <meta charset="UTF-8">
+    <title>Transmitter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="wrap">
+        <form id="receiverForm">
+            <div class="form-header">
+                <h2>Transmitter</h2>
+            </div>
+            <div class="form-body">
+                <fieldset>
+                    <legend><i class="fa fa-user"></i> Fill The Form</legend>
+                    <label for="zip">Noma Power Allocation</label>
+                    <select class="form-control" id="zip">
+                        <option>Select One</option>
+                        <option>0.1</option>
+                        <option>0.2</option>
+                        <option>0.3</option>
+                        <option>0.4</option>
+                    </select>
+                    <label for="zip">Antenna Gain</label>
+                    <input type="text" id="zip" name="zip" required="">
+                    <label for="zip">Carrier Frequency(GHz)</label>
+                    <select class="form-control" id="zip">
+                        <option>Select One</option>
+                        <option>1.417</option>
+                        <option>1.4417</option>
+                        <option>1.5417</option>
+                        <option>2.417</option>
+                    </select>
+                    <label for="zip">IQ Rate(K)</label>
+                    <input type="text" id="zip" name="zip" required="">
+                    <label for="zip">Modulation Scheme</label>
+                    <select class="form-control" id="zip">
+                        <option>Select One</option>
+                        <option>BPSK</option>
+                        <option>QPSK</option>
+                    </select>
+                    <label for="zip">Channel Coding Type</label>
+                    <select class="form-control" id="zip">
+                        <option>Select One</option>
+                        <option>Convolution</option>
+                        <option>Hamming</option>
+                    </select>
+                </fieldset>
+                <fieldset class="sub-opts">
+                    <legend><i class="fa fa-tags"></i> Transmitter On and Off </legend>
+                    <input type="radio" name="subscription" value="free" id="free">
+                    <div class="sub-opt">
+                        <label class="sub-label" id="onButton" for="free" onclick="displayImage()">
+                            <i class="fa fa-check"></i> On <span class="price"></span>
+                        </label>
+                    </div>
+                    <input type="radio" name="subscription" value="deluxe" id="deluxe" checked="" required="">
+                    <div class="sub-opt">
+                        <label class="sub-label" id="offButton" for="deluxe">
+                            <i class="fa fa-check"></i> Off <span class="price"></span>
+                        </label>
+                    </div>
+                    <input type="radio" name="subscription" value="premium" id="premium">
+                </fieldset>
+            </div>
+            <div class="form-footer">
+                <button type="button" onclick="toggleLink()">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- partial -->
+
+    <script>
+        function displayImage() {
+            var imgSrc = "C:/Users/SASG/Downloads/noma/assets/img/about-img.jpg"; // Replace with the actual path to your image file
+            var imgTag = "<img src='" + imgSrc + "' alt='Displayed Image'>";
+            document.getElementById("imageDisplay").innerHTML = imgTag;
+        }
+
+        function toggleLink() {
+            var offButton = document.getElementById("deluxe");
+            var submitButton = document.getElementById("submitButton");
+            if (offButton.checked) {
+                // Add any other conditions here if needed
+                alert("Form not submitted because Off button is checked");
+            } else {
+              // alert("Form submitted");
+              var link = document.createElement('a');
+        // Set the href attribute to the URL of the image
+        link.href = "/js(APNA%20COLLEGE)/newTransmitter/assets/img/transmitter_output.JPG";
+        // Set the target attribute to "_blank" to open in a new tab
+        link.target = "_blank";
+        // Click the link programmatically to open in new tab
+        link.click();
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
